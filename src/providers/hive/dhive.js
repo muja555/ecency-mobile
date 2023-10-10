@@ -57,12 +57,6 @@ let client = new Client(DEFAULT_SERVER, {
 export const checkClient = async () => {
   const selectedServer = DEFAULT_SERVER;
 
-  await getServer().then((response) => {
-    if (response) {
-      selectedServer.unshift(response);
-    }
-  });
-
   client = new Client(selectedServer, {
     timeout: 4000,
     failoverThreshold: 10,
@@ -1520,7 +1514,7 @@ export const postComment = (
     permlink,
     '',
     body,
-    jsonMetadata ? jsonMetadata : makeJsonMetadataReply(parentTags || ['ecency']),
+    jsonMetadata || makeJsonMetadataReply(parentTags || ['ecency']),
     null,
     null,
   )
@@ -2097,8 +2091,8 @@ export const resolveTransaction = async (parsedTx, parsedParams, signer) => {
     signers: [signer],
     preferred_signer: signer,
   });
-  tx.ref_block_num = parseInt(tx.ref_block_num + '', 10);
-  tx.ref_block_prefix = parseInt(tx.ref_block_prefix + '', 10);
+  tx.ref_block_num = parseInt(`${tx.ref_block_num}`, 10);
+  tx.ref_block_prefix = parseInt(`${tx.ref_block_prefix}`, 10);
 
   return tx;
 };

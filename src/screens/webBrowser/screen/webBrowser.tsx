@@ -51,6 +51,7 @@ const WebBrowser = ({ navigation, route }: Props) => {
     Alert.alert(intl.formatMessage({ id: 'alert.fail' }));
   };
 
+  console.log('----### WWWWE@@', url);
   return (
     <SafeAreaView style={styles.container}>
       <BasicHeader

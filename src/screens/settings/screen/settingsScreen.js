@@ -51,6 +51,9 @@ const SettingsScreen = ({
   isLoading,
   isHideImages,
 }) => {
+  //   console.log('==========');
+  // console.log('serverList', serverList);
+  // console.log('selectedApi', selectedApi);
   return (
     <Fragment>
       <BasicHeader

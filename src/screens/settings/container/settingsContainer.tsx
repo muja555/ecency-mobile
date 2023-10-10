@@ -85,6 +85,9 @@ class SettingsContainer extends Component {
   // Component Life Cycle Functions
   componentDidMount() {
     getNodes().then((resp) => {
+      console.log('==========');
+console.log('serverList', resp);
+
       this.setState({
         serverList: resp,
       });
