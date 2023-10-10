@@ -30,7 +30,7 @@ export const formatNumberInputStr = (text: string, precision: number = 10) => {
   if (text.includes(',')) {
     text = text.replace(',', '.');
   }
-  
+
   const _num = parseFloat(text);
 
   if (_num) {
